@@ -472,26 +472,7 @@ void flightdesc(Liste tete,HANDLE handle) {
     printf("\n enter 0 to get back to menu:");
 }
 
-void booking() {
-    int a, m, j, h, mn, s;
-    char nom[10], prenom[10];
-    int cin;
-    char cat[2];
-    printf("beinvenue!\n");
-    printf("donner la date de depart :\n ");
-    printf("annee:\t"); do { scanf_s("%d", &a); } while (a < 2022 || a> 2050);
-    printf("mois:\t"); do { scanf_s("%d", &m); } while ((m < 0) || m > 12);
-    printf("jour:\t"); do { scanf_s("%d", &j); } while ((j < 0) || (j > 31));
-    printf("heure:\t"); do { scanf_s("%d", &h); } while (h < 0 || h>24);
-    printf("minute:\t"); do { scanf_s("%d", &mn); } while (mn < 0 || mn>59);
-    printf("\n donner votre coordonnes!!\n");
-    printf("\n nom:\t"); scanf_s("%s", &nom);
-    printf("\n prenom:\t"); scanf_s("%s", &prenom);
-    printf("\n cin:\t"); scanf_s("%d", &cin);
-    //printf("choisir la categorie du votre voyage:\t");scanf("%s",&cat);
-    printf("\n votre reservation est reussie");
 
-}
 
 void allflights(Liste L, HANDLE handle) {
     Liste CL;
@@ -640,12 +621,11 @@ int main() {
     printf("\n 3/show flight description ");
     printf("\n 4/modify flight ");
     printf("\n 5/delete flight ");
-    printf("\n 6/search flights using a percise date ");
-    printf("\n 7/flight booking");
-    printf("\n 8/show all avaible flights");
-    printf("\n 9/exit");
+    printf("\n 6/search flights using a precise date ");
+    printf("\n 7/show all avaible flights");
+    printf("\n 8/exit");
     printf("\n your choice:");
-    setcursor(13,10, handle);
+    setcursor(13,9, handle);
     int choice;
 
     while (1==1) {
@@ -657,10 +637,9 @@ int main() {
             printf("\n 3/show flight description ");
             printf("\n 4/modify flight ");
             printf("\n 5/delete flight ");
-            printf("\n 6/search flights using a percise date ");
-            printf("\n 7/flight booking");
-            printf("\n 8/show all avaible flights");
-            printf("\n 9/exit");
+            printf("\n 6/search flights using a precise date ");
+            printf("\n 7/show all avaible flights");
+            printf("\n 8/exit");
             printf("\n your choice:");
         }
         if (choice == 1) {
@@ -675,7 +654,7 @@ int main() {
             system("cls");
             tete = remove_flight(tete);
         }
-        if (choice == 9) {
+        if (choice == 8) {
             return 0;
         }
 
@@ -692,14 +671,11 @@ int main() {
             system("cls");
             searchflight(tete,handle);
         }
-        if (choice == 8) {
+        if (choice == 7) {
             system("cls");
             allflights(tete, handle);
         }
-        if (choice == 7) {
-            system("cls");
-            booking();
-        }
+
 
         if ((9 < choice) || (choice<0)){
             printf(" error : wrong choice !! ");
